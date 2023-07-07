@@ -22,8 +22,7 @@ class Employer(models.Model):
     email = models.EmailField()
     username = models.CharField(max_length=25)
     password = models.CharField(max_length=25)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    job = models.ForeignKey('Job', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='employers')
 
     def __str__(self):
         return self.name
