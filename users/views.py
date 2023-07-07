@@ -9,6 +9,7 @@ def register_user(request):
         password = request.POST['password']
 
         user = User.objects.create_user(username=username, password=password)
+        user.save()
 
-        
+
 
