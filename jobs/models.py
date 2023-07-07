@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import Employer
 
 # Create your models here.
 class Job(models.Model):
