@@ -15,3 +15,12 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+class Employer(models.Model):
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=210)
+    phone = models.CharField(max_length=20)
+    email = models.EmailField()
+    username = models.CharField(max_length=25)
+    password = models.CharField(max_length=25)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    job = models.ForeignKey('Job', on_delete=models.CASCADE)
