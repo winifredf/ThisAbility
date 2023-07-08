@@ -1,5 +1,6 @@
 from django import forms
 from .models import Employer
+from django.contrib.auth.forms import AuthenticationForm
 
 class EmployerRegistrationForm(forms.ModelForm):
     class Meta:
