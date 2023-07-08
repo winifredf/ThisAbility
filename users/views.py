@@ -45,3 +45,6 @@ def register_employer(request):
         form = EmployerRegistrationForm()
     
     return render(request, 'registration/employer_register.html', {'form': form})
+def logout_user(request):
+    logout(request)
+    return redirect('users:login')
