@@ -30,3 +30,14 @@ def login_user(request):
             messages.error(request, 'Invalid username or password.')
 
     return render(request, 'registration/login.html')
+
+def register_employer(request):
+    if request.method == 'POST':
+        form = EmployerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('users:login')  # Redirect to the login page after successful registration
+    else:
+        form = EmployerRegistrationForm()
+    
+    return render(request, 'registration/employer_register.html', {'form': form})
