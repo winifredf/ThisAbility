@@ -46,7 +46,22 @@ def register_employer(request):
     
     return render(request, 'registration/employer_register.html', {'form': form})
 
-
+def login_user(request):
+    if request.method == 'POST':
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('users:profile')
+            else:
+                form.add_error(None, 'Invalid username or password.')
+    else:
+        form = UserLoginForm()
+    
+    return render(request, 'registration/login.html', {'form': form})
 
 def logout_user(request):
     logout(request)
