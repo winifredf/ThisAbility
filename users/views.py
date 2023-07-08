@@ -17,14 +17,15 @@ def register_user(request):
     return render(request, 'registration/register.html')
 
 def login_user(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        
+
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('users:profile')
         else:
-            messages.error(request, 'Invalid username and/or password.')
+            messages.error(request, 'Invalid username or password.')
+
     return render(request, 'registration/login.html')
