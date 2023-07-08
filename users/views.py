@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import EmployerRegistrationForm
 from django.contrib.auth import logout
-
+from .forms import UserLoginForm
 
 
 # Create your views here.
@@ -45,6 +45,8 @@ def register_employer(request):
         form = EmployerRegistrationForm()
     
     return render(request, 'registration/employer_register.html', {'form': form})
+
+
 
 def logout_user(request):
     logout(request)
