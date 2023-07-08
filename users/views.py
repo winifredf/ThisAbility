@@ -36,7 +36,7 @@ def register_employer(request):
         form = EmployerRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('users:login')  # Redirect to the login page after successful registration
+            return redirect('users:login')  
     else:
         form = EmployerRegistrationForm()
     
