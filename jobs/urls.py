@@ -5,10 +5,7 @@ from django.shortcuts import render
 
 app_name = 'jobs'
 
-def job_list(request):
-    jobs = Job.objects.all()
-    return render(request, 'jobs/job_list.html', {'jobs': jobs})
-
-def job_detail(request, job_id):
-    job = Job.objects.get(pk=job_id)
-    return render(request, 'jobs/job_detail.html', {'job': job})
+urlpatterns = [
+    path('', views.job_list, name='job_list'),
+    path('<int:job_id>/', views.job_detail, name='job_detail'),
+]
