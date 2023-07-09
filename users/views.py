@@ -73,11 +73,3 @@ def user_profile(request):
     context = {'user': user}
     return render(request, 'users/profile.html', context)
 
-def job_list(request):
-    jobs = Job.objects.all()
-    return render(request, 'jobs/job_list.html', {'jobs': jobs})
-
-def job_detail(request, job_id):
-    job = Job.objects.get(pk=job_id)
-    return render(request, 'jobs/job_detail.html', {'job': job})
-
