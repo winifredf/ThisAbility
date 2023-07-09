@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from.models import Job
+from django.shortcuts import render
 
 app_name = 'jobs'
 
