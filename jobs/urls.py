@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .models import Job
+from django.urls import path
+from . import views
+
+app_name = 'jobs'
 
 def job_list(request):
     jobs = Job.objects.all()
