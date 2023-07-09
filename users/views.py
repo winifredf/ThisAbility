@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login
 from .forms import EmployerRegistrationForm
 from django.contrib.auth import logout
 from .forms import UserLoginForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
