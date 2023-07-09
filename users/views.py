@@ -6,6 +6,7 @@ from .forms import EmployerRegistrationForm
 from django.contrib.auth import logout
 from .forms import UserLoginForm
 from django.contrib.auth.decorators import login_required
+from .models import Job
 
 
 # Create your views here.
